@@ -168,7 +168,7 @@ CGFloat scaleIndicatorPadding = 4.0;
 
     CGFloat newScale = currentFactor - newScaleFactor;
 
-    CGFloat newScaleClamped = fmin(0.75, fmax(0.5, newScale));
+    CGFloat newScaleClamped = fmin(0.9, fmax(0.4, newScale));
 
     CGAffineTransform newTransform = CGAffineTransformMakeScale(newScaleClamped, newScaleClamped);
 
@@ -176,7 +176,7 @@ CGFloat scaleIndicatorPadding = 4.0;
     CGFloat scaledWidth = bounds.size.width * newScaleClamped;
 
     CGFloat centerX = isLeft ? scaledWidth / 2.0 : bounds.size.width - scaledWidth / 2.0;
-    CGFloat centerY = bounds.size.height - scaledHeight + scaledHeight / 2.0;
+    CGFloat centerY = bounds.size.height - scaledHeight + scaledHeight / 2.0-102;
 
     [rootWindow sceneContainerView].center = CGPointMake(centerX, centerY);
     [rootWindow _systemGestureView].center = CGPointMake(centerX, centerY);
@@ -381,7 +381,7 @@ CGFloat scaleIndicatorPadding = 4.0;
             if ([defaults objectForKey:@"lastscale"] == nil) {
                 initialScale = 0.75;
             } else {
-                initialScale = fmin(0.75, fmax(0.5, [[defaults objectForKey:@"lastscale"] floatValue]));
+                initialScale = fmin(0.9, fmax(0.4, [[defaults objectForKey:@"lastscale"] floatValue]));
             }
         }
 
